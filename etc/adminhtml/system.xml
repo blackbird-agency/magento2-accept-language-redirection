@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="web">
+            <group id="url">
+                <field id="accept_language_redirection" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Accept Language Redirection</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If set to Yes, loading MAGE_RUN_CODE without having correct URL suffix will trigger redirection based on HTTP Request Accept-Language parameter. Switch config to "Store view scope" for additional config</comment>
+                </field>
+                <field id="accept_language_expected_value" translate="label comment" type="text" sortOrder="60" showInDefault="0" showInWebsite="0" showInStore="1">
+                    <label>Accept Language Expected Value</label>
+                    <comment>Will check if Accept-Language is starting with this value. E.g. "fr", "en"</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
