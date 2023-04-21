@@ -3,6 +3,6 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Store\App\Request\StorePathInfoValidator">
         <plugin name="accept_language_redirection"
-                type="HomeHeritage\AcceptLanguageRedirection\Plugin\AcceptLanguageStorePathInfoValidatorPlugin" sortOrder="10" />
+                type="Blackbird\AcceptLanguageRedirection\Plugin\AcceptLanguageStorePathInfoValidatorPlugin" sortOrder="10" />
     </type>
 </config>
