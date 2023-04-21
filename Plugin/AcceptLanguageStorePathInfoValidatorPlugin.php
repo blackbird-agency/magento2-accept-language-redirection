@@ -18,13 +18,19 @@ class AcceptLanguageStorePathInfoValidatorPlugin
     public const ACCEPT_LANGUAGE_REDIRECTION_XML_PATH = 'web/url/accept_language_redirection';
     public const ACCEPT_LANGUAGE_EXPECTED_VALUE_XML_PATH = 'web/url/accept_language_expected_value';
     public const HTTP_ACCEPT_LANGUAGE = 'HTTP_ACCEPT_LANGUAGE';
+    protected $scopeConfig;
+    protected $storeManager;
+    protected $request;
 
     public function __construct(
-        private ScopeConfigInterface $scopeConfig,
-        private StoreManagerInterface $storeManager,
-        private RequestInterface $request
+        ScopeConfigInterface $scopeConfig,
+        StoreManagerInterface $storeManager,
+        RequestInterface $request
     ) {
 
+        $this->scopeConfig = $scopeConfig;
+        $this->storeManager = $storeManager;
+        $this->request = $request;
     }
 
     /**
@@ -63,7 +69,7 @@ class AcceptLanguageStorePathInfoValidatorPlugin
             //SEARCH FOR STORE ID
             try {
                 $store = $this->getStoreByCode($expectedStoreCode);
-            } catch (NoSuchEntityException) {
+            } catch (NoSuchEntityException $noSuchEntityException) {
                 return $result;
             }
 
