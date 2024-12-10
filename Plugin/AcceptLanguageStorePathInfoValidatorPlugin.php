@@ -85,7 +85,7 @@ class AcceptLanguageStorePathInfoValidatorPlugin
             }
 
             //Find targeted store for Accepted Language
-            $httpAcceptLanguage = $this->request->getServer(self::HTTP_ACCEPT_LANGUAGE);
+            $httpAcceptLanguage = (string) $this->request->getServer(self::HTTP_ACCEPT_LANGUAGE);
             foreach ($this->storeManager->getStores() as $targetedStore) {
                 if ($store->getWebsiteId() === $targetedStore->getWebsiteId()) {
                     $acceptLanguageExpectedValue = (string) $this->scopeConfig->getValue(
